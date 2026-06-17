@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Memoria de Trabajo V2</title>
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI,sans-serif;
+}
+body{
+background:#0a0a0a;
+color:#f5f5f5;
+overflow-x:hidden;
+}
+header{
+height:70px;
+background:#000;
+border-bottom:1px solid #d4af37;
+display:flex;
+align-items:center;
+padding:0 20px;
+position:fixed;
+width:100%;
+z-index:999;
+}
+.menu{
+font-size:30px;
+color:#d4af37;
+cursor:pointer;
+}
+header h1{
+margin-left:15px;
+color:#d4af37;
+font-size:22px;
+}
+.sidebar{
+position:fixed;
+left:-300px;
+top:0;
+width:280px;
+height:100%;
+background:#111;
+transition:.4s;
+padding-top:80px;
+z-index:1000;
+border-right:1px solid #d4af37;
+}
+.sidebar a{
+display:block;
+padding:15px 25px;
+color:#fff;
+text-decoration:none;
+}
+.sidebar a:hover{
+background:#d4af37;
+color:#000;
+}
+.section{
+display:none;
+min-height:100vh;
+padding:110px 8%;
+animation:fade .5s ease;
+}
+.active{display:block}
+.card{
+background:#111;
+border:1px solid #d4af37;
+border-radius:20px;
+padding:30px;
+max-width:1100px;
+margin:auto;
+box-shadow:0 0 25px rgba(212,175,55,.25);
+}
+h2{
+color:#d4af37;
+margin-bottom:15px;
+}
+.hero{text-align:center}
+.hero img{max-width:180px;margin-bottom:20px}
+.hero h2{font-size:3rem;color:#d4af37}
+.hero p{margin:10px 0}
+img.main{
+width:100%;
+border-radius:15px;
+margin-top:15px;
+border:1px solid #d4af37;
+}
+.carousel img{
+width:100%;
+height:350px;
+object-fit:contain;
+border-radius:15px;
+border:1px solid #d4af37;
+}
+.mini-img{
+width:55%;
+max-width:500px;
+height:auto;
+display:block;
+margin:15px auto;
+border-radius:15px;
+border:1px solid #d4af37;
+}
+
+.caption{
+text-align:center;
+margin-top:10px;
+color:#d4af37;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="menu" onclick="toggleMenu()">☰</div>
+<h1>Memoria de Trabajo</h1>
+</header>
+
+<div class="sidebar" id="sidebar">
+<a href="#" onclick="showSection('inicio')"> Inicio</a>
+<a href="#" onclick="showSection('cap1')"> Capítulo I</a>
+<a href="#" onclick="showSection('cap2')"> Capítulo II</a>
+<a href="#" onclick="showSection('cap3')"> Capítulo III</a>
+<a href="#" onclick="showSection('cap4')"> Capítulo IV</a>
+</div>
+
+<div id="inicio" class="section active">
+<div class="card hero">
+<img src="imag/logo.jpeg">
+<h2>CBT1 Dr JORGÉ JIMENEZ CANTÚ TECAMAC</h2>
+<p><b>Mantenimiento Preventivo de Equipos de Cómputo en el Sistema Municipal DIF</b></p>
+<p>Hernández López Santiago</p>
+<p>Técnico en Informática</p>
+<p>Generación 2023 - 2026</p>
+</div>
+</div>
+
+<div id="cap1" class="section">
+<div class="card">
+<h2>Capítulo I - Escenario Real</h2>
+<p>La estadía profesional se desarrolló en CCB Real Castel, donde se realizaron actividades relacionadas con soporte técnico y mantenimiento preventivo.</p>
+<br>
+<p><b>Ubicación:</b> Blvrd Ojo de Agua Manzana 011, Hacienda Ojo de Agua, 55770 Ojo de Agua, Méx.</p>
+<p><b>Departamento:</b> Sistemas y apoyo administrativo.</p>
+<p><b>Actividad principal:</b> Mantenimiento y optimización de equipos de cómputo.</p>
+<img class="mini-img" src="imag/croquis.jpeg">
+</div>
+</div>
+
+<div id="cap2" class="section">
+<div class="card">
+<h2>Capítulo II - Competencias Adquiridas</h2>
+<ul>
+<li>Administración de sistemas operativos.</li>
+<li>Mantenimiento preventivo de equipos.</li>
+<li>Optimización de software y hardware.</li>
+</ul>
+<br>
+<p><b>Módulo:</b> Administra sistemas operativos de aplicaciones y servicios.</p>
+<p><b>Submódulos:</b> Administración de sistemas, configuración de aplicaciones y soluciones tecnológicas.</p>
+</div>
+</div>
+
+<div id="cap3" class="section">
+<div class="card">
+<h2>Capítulo III - Experiencias Laborales</h2>
+<p>Se realizaron diagnósticos, limpieza física y lógica, eliminación de archivos innecesarios, optimización del sistema operativo y pruebas de funcionamiento para mejorar el rendimiento de los equipos.</p>
+<br>
+<div class="carousel">
+<img id="slide" src="imag/evidencia 1.jpeg">
+<div class="caption" id="caption">Revisión de computadora</div>
+</div>
+</div>
+</div>
+
+<div id="cap4" class="section">
+<div class="card">
+<h2>Capítulo IV - Aportación y Mejora Continua</h2>
+<p>Se propuso un sistema de tickets digitales para programar mantenimientos preventivos periódicos, mejorando la organización y seguimiento de los servicios.</p>
+<img class="mini-img" src="imag/ticket.jpeg">
+</div>
+</div>
+
+<script>
+function toggleMenu(){
+const s=document.getElementById('sidebar');
+s.style.left=s.style.left==='0px' ? '-300px':'0px';
+}
+function showSection(id){
+document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+document.getElementById('sidebar').style.left='-300px';
+}
+
+const imgs=[
+['imag/evidencia 1.jpeg','Revisión de computadora'],
+['imag/evidencia 2.jpeg','Limpieza interna'],
+['imag/evidencia 3.jpeg','Eliminación de archivos'],
+['imag/evidencia 4.jpeg','Optimización del sistema'],
+['imag/evidencia 5.jpeg','Equipo funcionando']
+];
+let i=0;
+setInterval(()=>{
+i=(i+1)%imgs.length;
+slide.src=imgs[i][0];
+caption.innerText=imgs[i][1];
+},1800);
+</script>
+</body>
+</html>
